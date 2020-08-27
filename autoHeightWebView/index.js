@@ -34,6 +34,9 @@ const AutoHeightWebView = React.memo(
       // Sometimes the message is invalid JSON, so we ignore that case
       try {
         data = JSON.parse(event.nativeEvent.data);
+        if (data.id === 'kb') {
+          return
+        }
       } catch (error) {
         console.error(error);
         return;
